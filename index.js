@@ -13,9 +13,10 @@ axios.get(url)
         let $ = cheerio.load(response.data);
         let quotes = [];
 
-        $('div.col-md-8 div').each((index, element) => {
+        $('div.col-md-8 .quote').each((index, element) => {
             quotes.push({
-                title: $(element).find('span.text').text().trim()
+                title: $(element).find('span.text').text().trim(),
+                author: $(element).find('small.author').text().trim(),
             })
         });
 
